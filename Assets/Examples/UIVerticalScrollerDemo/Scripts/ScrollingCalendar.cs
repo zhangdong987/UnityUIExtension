@@ -162,12 +162,26 @@ namespace UnityEngine.UI.Extensions.Examples
 
         public void SetDate()
         {
+            SetDayData();
+            SetMonthData();
+            SetYearData();
+        }
+        private void SetDayData()
+        {
+            if (string.IsNullOrEmpty(inputFieldDays.text)) return;
             daysSet = int.Parse(inputFieldDays.text) - 1;
-            monthsSet = int.Parse(inputFieldMonths.text) - 1;
-            yearsSet = int.Parse(inputFieldYears.text) - 1900;
-
             daysVerticalScroller.SnapToElement(daysSet);
+        }
+        private void SetMonthData()
+        {
+            if (string.IsNullOrEmpty(inputFieldMonths.text)) return;
+            monthsSet = int.Parse(inputFieldMonths.text) - 1;
             monthsVerticalScroller.SnapToElement(monthsSet);
+        }
+        private void SetYearData()
+        {
+            if (string.IsNullOrEmpty(inputFieldYears.text)) return;
+            yearsSet = int.Parse(inputFieldYears.text) - 1900;
             yearsVerticalScroller.SnapToElement(yearsSet);
         }
 
